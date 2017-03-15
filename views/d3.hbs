@@ -29,7 +29,7 @@ function viz(data){
                                               // los datos
       })
 
-  var circulo = elemEnter.append('circle') // agrega un circulo
+  var circulo = elemEnter.append('rect') // agrega un circulo
     .attr('stroke', 'black') // la línea de contorno será negra
     .attr('fill', function(d){ // el color de relleno se aplica según el
                                // resultado de esta función
@@ -40,7 +40,10 @@ function viz(data){
       }
     })
 
-    .attr('r', function(d){ // el radio dependerá de la cantidad de items en la
+    .attr('width', function(d){ // el radio dependerá de la cantidad de items en la
+      return d.items.count * 10 // colección
+    })
+    .attr('height', function(d){ // el radio dependerá de la cantidad de items en la
       return d.items.count * 10 // colección
     })
 
